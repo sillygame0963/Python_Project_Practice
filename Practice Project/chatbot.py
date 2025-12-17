@@ -1,9 +1,9 @@
 # Import the regular expression module to handle matching
 import re
-from http.client import responses
+# from http.client import response
 
 # A dictionary that map keywords to predefined responses
-responses = {
+response = {
     "hello": "Hi! I'm a noob chatbot! How can I help you?",
     "hi": "Hi Son! How can I help you today?",
     "How are you?": "I'm fine thank you, and you?",
@@ -15,15 +15,15 @@ responses = {
 }
 
 # Function to find appropriate response based on user's input
-def chatbot_res(user_input):
+def chatbot_response(user_input):
     # Convert user's input to lowercase to match case-insensitive
     user_input = user_input.lower()
 
-    for keywords in responses:
+    for keywords in response:
         if re.search(keywords, user_input):
-            return responses[keywords]
+            return response[keywords]
         else:
-            return responses["default"]
+            return response["default"]
 
 # Main function to run the chatbot
 def chatbot():
@@ -39,7 +39,7 @@ def chatbot():
             break
 
         # Chatbot response based on user's input
-        responses = chatbot_res(user_input)
+        responses = chatbot_response(user_input)
 
         # Print chatbot response
         print(f"Chatbot: {responses}")
